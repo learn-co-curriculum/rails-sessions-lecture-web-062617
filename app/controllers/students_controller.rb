@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   def index
     @students = Student.all
+
   end
 
   def show
@@ -12,8 +13,12 @@ class StudentsController < ApplicationController
   end
 
   def create
-    Student.create(student_params)
-    redirect_to students_path
+    @student = Student.new(student_params)
+    if !@student.save
+      render :new
+    else
+      redirect_to students_path
+    end
   end
 
   private
