@@ -18,9 +18,11 @@
      <a class="item" href="<%= new_student_path %>">
        Create a New Student
      </a>
-     <a class="item" href="/login">
-       Login
-     </a>
+     <% if !logged_in? %>
+       <%= link_to 'Login', login_path, class: 'item' %>
+      <% else %>
+        <%= link_to('Log Out', logout_path, method: 'DELETE', class: 'item') %>
+      <% end %>
    </div>
   </div>
   <body>
