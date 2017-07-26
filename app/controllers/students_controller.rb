@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
   end
 
   def show
+    session["secret_cookie"] = 'hello world'
     @student = Student.find_by(id: params[:id])
   end
 
