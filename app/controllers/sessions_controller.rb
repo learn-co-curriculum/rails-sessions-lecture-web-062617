@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to students_path
     else
-      flash[:dog] = 'We could not find a user with tha username in our records'
+      flash[:message] = 'We could not find a user with tha username in our records'
       redirect_to login_path
     end
   end

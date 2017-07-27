@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
 
   def authorize_user
     if !logged_in?
+      flash[:message] = 'You must be logged in to see that page'
       redirect_to login_path
     end
-
   end
 
   def current_user

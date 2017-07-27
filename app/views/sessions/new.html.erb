@@ -1,7 +1,16 @@
 <div class="six wide column">
-  <%= flash[:dog] %>
-  <%= form_tag login_path do %>
-    <%= text_field_tag :username %>
-    <%= submit_tag 'Login' %>
+  <%= flash[:message] %>
+  <%= form_tag login_path, class: 'ui form' do %>
+    <div class='field'>
+      <label>Username</label>
+      <%= text_field_tag :username %>
+    </div>
+    <div class='field'>
+      <label>Password</label>
+      <%= password_field_tag :password %>
+    </div>
+    <div class='field'>
+      <%= submit_tag 'Login', class: 'ui big positive button' %>
+    </div>
   <% end %>
 </div>

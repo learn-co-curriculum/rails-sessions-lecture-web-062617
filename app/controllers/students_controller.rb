@@ -1,13 +1,11 @@
 class StudentsController < ApplicationController
   before_action :authorize_user, only: [:show, :new]
-  helper_method :current_user
 
   def index
     @students = Student.all
   end
 
   def show
-    session["secret_cookie"] = 'hello world'
     @student = Student.find_by(id: params[:id])
   end
 
@@ -16,15 +14,12 @@ class StudentsController < ApplicationController
   end
 
   def create
-
-
-      @student = Student.new(student_params)
-      if !@student.save
-        render :new
-      else
-        redirect_to students_path
-      end
-
+    @student = Student.new(student_params)
+    if !@student.save
+      render :new
+    else
+      redirect_to students_path
+    end
   end
 
   private
