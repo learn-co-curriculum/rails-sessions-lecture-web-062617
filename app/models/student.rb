@@ -15,4 +15,9 @@ class Student < ApplicationRecord
     end
   end
 
+
+  def dog=(dog)
+    puts 'hello'
+  end
+
 end
